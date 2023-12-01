@@ -1,0 +1,74 @@
+Aula sobre atributos e Tags
+
+
+<html>
+    <head>
+        <title>Mudei o título</title>
+    </head>
+    <body>
+        <strong id="título" class="título-principal" style="color: blueviolet"> Meu primeiro <i>HTML!</i></strong>
+        <input type="color" />
+        <img width="250" src="https://th.bing.com/th/id/OIP.Dn5FQ_A6RHO221isXOehXwHaE8?rs=1&pid=ImgDetMain" />
+    </body>
+</html>
+
+
+
+Propridades de Textos
+
+
+<html>
+    <head>
+        <title>Mudei o título</title>
+    </head>
+    <body>
+        <h1>DIO.me</h1>
+        <h2>Implemente o seu futuro global hoje.</h2>
+        <p>
+            Domine as <u><strong>tecnologias</u><sup>*</sup></strong> utilizadas pelas empresas <mark>mais inovadoras do mundo</mark> e encare seu desafio profissional, evoluindo em comunidade com os melhores experts.
+        </p>
+        <blockquote>
+            <i>O jeito Dio. para ganhar destaque mais rápido no mercado.</i>
+        </blockquote>
+        <h2>
+            Aprenda tecnologias emergentes
+        </h2>
+        <p>
+            Os nossos cursos e programas de formação são criados em conjunto com especialistas das empresas mais inovadoras do mundo, aplicando uma metodologia para que você domine as tecnologias utilizadas no mercado e também mergulhe nas novas e mais atuais tecnologias que impactarão o futuro dos negócios digitais.
+        </p>
+        <h2>
+            Pratique com desafios de código
+        </h2>
+        <p>
+            Potencoaçozamos o seu talento e aprimoramos suas habilidades de pensamento computacional e resolução de desafios rais através de experiências práticas de codificação em nossa plataforma personalizada e exclusiva.
+        </p>
+    </body>
+</html>
+
+
+Lista Ordenada e não ordenada
+
+
+<html>
+    <head>
+        <title>Mudei o título</title>
+    </head>
+    <body>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3
+                <ol>
+                    <li>Item 3.1</li>
+                    <li>Item 3.2</li>
+                    <li>Item 3.3</li>
+                </ol>
+            </li>
+        </ol>
+        <ou>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ou>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+# O que são Clients?
+
+
+Client, no linguajar web é o dispositivo que consome a informação de um servidor.
+
+Servidor, é o lado que oferece a informação, que "hospeda".
+
+Cache: é a informação que fica guardada na máquina Client
+
+Quando se faz uma aplicação, busca ser Responsivo(Utilizável em dispositivos diferentes) e Compatível(Utilizável em softwares distintos).
+
+Navegadores são programas que interpretam os arquivos vindos do servidor web.
+
+A W3C define os padrões a serem adotados por esses navegadores.
+
+Aplicações Web são soluções criadas que utilizam a Internet como comunicação, mas não precisam estar instaladas na máquina local.(Ex. youtube.com, x.com, meta.com, etc)
+
+
+
+# O que são servidores?
+
+ 
+Servidores são locais onde são armazenadas as informações que serão fornecidas aos Clients. Podem existir de maneira Local ou Web.
+
+Tipos de Servidor:
+- Arquivos
+- Segurança(Firewall, Proxy)
+- Streaming
+- Email
+- Web
+
+Grandes servidores de dados podem ser conhecidos como Data Center
+

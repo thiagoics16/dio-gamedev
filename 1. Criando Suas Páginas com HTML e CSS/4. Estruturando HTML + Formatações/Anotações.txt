@@ -1,0 +1,198 @@
+# Estruturando seu HTML + Formatações
+
+    Entender como formatar alguns textos pensando também em acessibilidade.
+    Estruturar melhor seu HTML, preparando ele para aplicar o CSS.
+    Conhecer mais sobre como funcionam cores no HTML.
+
+## Formatando textos: <strong>, <i>, <b>, <u>
+
+    <strong> - Coloca o texto em negrito.
+
+        Dá mais enfase ao texto. Inclusive na leitura pelo robo.
+
+    <i> - Coloca o texto em itálico
+
+        É usado principalmente em citações, termos regionais(gírias)
+
+    <b> - Coloca em negrito
+
+        Deixa mais escuro o trecho.
+
+    <u> - Coloca uma linha em baixo do texto
+
+        Sublinhado
+
+    <mark> - marca texto
+    <sup> - coloca na parte superior da palavra(Elevado)
+    <sub> - Coloca na parte inferior da palavra
+    <blockquote> - Cria um bloco escrito
+
+        Blocos de citação por exemplo.
+
+
+## Formatando textos: <font>
+
+    Letras serifadas auxiliam na leitura, pois possuem uma base (um pézinho).
+    Por padrão HTML usa Sans serif
+    Exemplo de Fontes Trebuchet MS, Tahoma, Arial podem ser usadas várias ao mesmo tempo.
+    Em CSS é possível fazer essas alterações.
+
+## Tag <div> e <span>
+
+    Na hora de Estrturar o HTML o pensamento é de fora para dentro.
+    <div> São os compartimentos que terão dentro da página HTML, ocupando toda a lateral.
+
+    <span> Se comporta de maneira semelhante ao <div>, mas só no espaço limitado
+
+- Ex de Código:
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="menu-lateral">
+        <div id="links">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+## Tag <fieldsets>
+
+    É uma tag estrutural que segmenta a página em quadros.
+
+- Ex de Código:
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            margin:5px;
+        }
+        label {
+            width:100px;
+            text-align: right;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        fieldset {
+            margin: 15px 0;
+            border-radius: 10px;
+            border-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Cadastro</h1>
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="row">
+            <label>Nome: </label><input type="text" />
+            <label>E-mail: </label><input type="text" />
+        </div>
+        <div class="row">
+            <label>Profissão: </label><input type="text" />
+            <label>Empresa: </label><input type="text" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Endereço</legend>
+        <div class="row">
+            <label>Endereço: </label><input type="text" />
+            <label>Número: </label><input style="width: 30px" type="text" width="10" />
+        </div>
+        <div class="row">
+            <label>Bairro: </label><input type="text" />
+        </div>
+        <div class="row">
+            <label>Cidadde/UF: </label><input type="text" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Contato</legend>
+        <div class="row">
+            <label>Celular: </label><input type="text" />
+            <label>Whatsapp: </label><input type="text" />
+        </div>
+        <div class="row">
+            <label>Linkedin: </label><input type="text" />
+            <label>Github: </label><input type="text" />
+        </div>
+    </fieldset>
+</body>
+</html>
+
+## Tag <embeds>
+
+    Não é mais utilizada hoje em dia. Com o tempo fez-se necessário carregar as informações
+    de maneira separada, pois a carga de informação se tornou cada vez maior.
+
+    Ele carrega mídias externas, mas existem tags mais modernas, específicas e que acabam por
+    melhorar a semântica.
+
+- Ex de Código
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Embed vs Iframes</h1>
+
+    <embed src="Estrutura Básica de um HTML.png" width="400" height="250">
+    
+    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla laborum nam, dolor nemo ab, mollitia porro exercitationem similique nesciunt nostrum voluptatibus ipsum velit magnam repellendus adipisci veniam necessitatibus ratione.</span></p>
+
+ 
+    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla laborum nam, dolor nemo ab, mollitia porro exercitationem similique nesciunt nostrum voluptatibus ipsum velit magnam repellendus adipisci veniam necessitatibus ratione.</span></p>
+
+</body>
+</html>
+
+## Tag <iframes>
+
+    O Iframe permite trazer alem de mídias, dá pra anexar um site inteiro em janela.
+    A visita conta para o site que está sendo anexado.
+
+    Pode ter problemas de segurança!!!
+
+- Ex de Código
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Embed vs Iframes</h1>
+
+    <embed src="Estrutura Básica de um HTML.png" width="400" height="250">
+    
+    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla laborum nam, dolor nemo ab, mollitia porro exercitationem similique nesciunt nostrum voluptatibus ipsum velit magnam repellendus adipisci veniam necessitatibus ratione.</span></p>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.720004112893!2d-38.5633930563927!3d-3.8251771449537704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74e11ae983cdf%3A0xe552db01a34abca5!2sR.%20B%2C%201311%20-%20Parque%20Dois%20Irm%C3%A3os%2C%20Fortaleza%20-%20CE%2C%2060810-670!5e0!3m2!1spt-BR!2sbr!4v1701721090406!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla laborum nam, dolor nemo ab, mollitia porro exercitationem similique nesciunt nostrum voluptatibus ipsum velit magnam repellendus adipisci veniam necessitatibus ratione.</span></p>
+
+</body>
+</html>
+
+## Resenha sobre cores

@@ -1,0 +1,278 @@
+
+Objetivo Geral 
+
+Rever algumas tags HTML. 
+Entender como funcionam os formulários de um website e 
+como uma informação enviada através de formulário chega ao servidor.
+
+#Tag <form>
+
+Formulários são trechos do HTML onde serão inseridos campos para
+o preenchimento de informações pelo Client.
+A comunicação é feita com o servidor e grava as informações(ou não)
+em um servidor. 
+LGPD(Lei geral de proteção de dados)Pesquisar
+Formulário é o conjunto de campos para preenchimento.
+
+OBS: o name do código será a variável que irá receber o valor inputado
+Ex)Idade: <input type="number" name="age" /><br>
+A variável age vai receber o valor inputado no campo Idade.
+
+-Ex de Codigo
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <h1><strong>Formulário de Cadastro✌️😁</strong></h1>
+    <form name="signup" autocomplete="off" onsubmit="alert('Enviei o Formulário');" target="_blank" method="POST" action="#">
+        Nome: <input type="text" name="name" /><br>
+        Idade: <input type="number" name="age" /><br>
+        Senha: <input type="password" name="password" /><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+
+
+#Tag <input>
+
+<label>Text: </label><input type="text" /><br>
+
+    O <br> ao fim serve para pular uma linha
+
+<label>Number: </label><input min="0" max="99" step="5" type="number" /><br>
+
+    Pode-se definir um mínimo e um máximo, bem como de quanto em quanto irá "pular" os valores.
+
+<label>Button: </label><input type="button" value="Enviar" /><button>Enviar</button>
+
+    O Button pode ser colocado tanto dentro do <input> quanto pode ser uma tag própria <button>
+O segundo caso funciona melhor na maioria das vezes.
+
+<label>Range: </label><input type="range" value="90" min="0" max="100" /><br>
+
+    Usado para criar um scroll
+
+<label>Color: </label><input type="color" /><br>
+
+    Usado para definir uma cor
+
+<label>E-mail: </label><input type="email" /><br>
+
+    Usado para inserir um e-mail, e precisa ser preenchido com o formato email@email.com
+
+<label>URL: </label><input type="url" /><br>
+
+    Usado para inserir uma url, e precisa ser preenchido com o formato www.url.com
+
+<label>Date: </label><input type="date" /><br>
+
+    Usado para inserir uma data no formato local.
+
+<label>Week: </label><input type="week" /><br>
+
+    Usado para inserir uma semana(não funciona no Firefox)
+
+<label>Month: </label><input type="month" /><br>
+
+    Usado para definir um mês(não funciona no Firefox)
+
+<label>Checkbox: </label><input type="checkbox" /><input type="checkbox" /><br>
+
+    Usado para criar uma caixa de checagem.
+
+<label>Radio: </label><input type="radio" name="aceita" /><input type="radio" /><br>
+
+    Usado para criar uma ponto de checagem.
+
+<label>Hidden: </label><input type="hidden" /><br>
+
+    Usado para enviar uma informação oculta ao usuário.
+
+<label>File: </label><input type="file" multiple /><br>
+
+    Usado para enviar um arquivo, usa-se o multiple para que possam ser vários arquivos.
+
+<label>Search: </label><input type="search" /><br>
+
+    Usdao para inserir uma busca.
+
+-Ex de Codigo
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <form>
+        <label>Text: </label><input type="text" /><br>
+        <label>Number: </label><input min="0" max="99" step="5" type="number" /><br>
+        <label>Button: </label><input type="button" value="Enviar" /><button>Enviar</button><br>
+        <label>Range: </label><input type="range" value="90" min="0" max="100" /><br>
+        <label>Color: </label><input type="color" /><br>
+        <label>E-mail: </label><input type="email" /><br>
+        <label>URL: </label><input type="url" /><br>
+        <label>Date: </label><input type="date" /><br>
+        <label>Week: </label><input type="week" /><br>
+        <label>Month: </label><input type="month" /><br>
+        <label>Checkbox: </label><input type="checkbox" /><input type="checkbox" /><br>
+        <label>Radio: </label><input type="radio" name="aceita" /><input type="radio" /><br>
+        <label>Hidden: </label><input type="hidden" /><br>
+        <label>File: </label><input type="file" multiple /><br>
+        <label>Search: </label><input type="search" /><br>
+
+    </form>
+</body>
+</html>
+
+
+#Tag <checkbox> e <radio>
+
+    De início o checkbox pode selecionar vários, e desselecionar também.
+    Já o radio, não permite desselecionar, de início.
+
+    A idéia do checkbox é selecionar múltiplos valores, e pode armazenalos todos em 1 única variável.
+    Essa definição vem através do name. Mas tem um porém, ele só armazena a última.
+    Para armazenar todos, deve-se colocar o [] e colocar <form method="post"> dessa maneira: name="opcional[]", por exemplo.
+    Já o radio, acontece o mesmo, mas ele só armazena um valor na variável definida por name.
+
+    Também é possivel adicionar a opção disabled para indicar que não tem aquela opção:
+
+<input type="checkbox" disabled name="opcional[]" value="queijo"> + queijo <br>
+        
+-Ex de código
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <form method="post">
+        <h3>Você selecionou: Pizza de Calabresa</h3>
+        <p>Quais os opcionais você deseja?</p>
+        <input type="checkbox" name="opcional[]" value="queijo"> + queijo <br>
+        <input type="checkbox" name="opcional[]" value="calabresa"> + calabresa <br>
+        <input type="checkbox" name="opcional[]" value="cebola"> + cebola <br>
+        <input type="checkbox" name="opcional[]" value="azeitona"> + azeitona <br>
+        <p>Borda recheada?</p>
+        <input type="radio" name="borda" value="sim">Sim<br>
+        <input type="radio" name="borda" value="nao">Não<br>
+        <p>Bebida</p>
+        <input type="radio" name="bebida" value="suco">Suco<br>
+        <input type="radio" name="bebida" value="refrigerante">Refrigerante<br>
+        <input type="radio" name="bebida" value="agua">Água<br>
+        <input type="radio" name="bebida" value="nenhum">Nenhum<br> <br>
+
+        <button type="submit">Enviar pedido</button>
+    </form>
+</body>
+</html>
+
+#Tag <button>
+
+    type="button" é o mais simples, só terá uma ação se adicionar um código JavaScript.
+
+    type="reset" limpa os campos que estão no formulário
+
+    type="submit" envia o formulário
+
+    Quando se aperta Enter, tem o mesmo valor do submit
+
+    É interessante que os campos do formulário sejam validados tanto no front-end quanto no back-end
+
+- Ex de código:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <form method="get">
+       <label>Nome: </label><input type="text" name="name"><br>
+       <label>Idade: </label><input type="number" name="age"><br>
+       <label>Password: </label><input type="password" name="password"><br>
+
+       <button type="button" onmouseover="alert('Passei aqui')">Clicável</button>
+       <button type="reset" >Limpar</button>
+       <button type="submit">Enviar</button>
+
+
+
+    </form>
+</body>
+</html>
+
+
+#Tag <select>
+
+    É possivel fazer uma lista a ser selecionada com a Tag <select>, e definir as opções
+    com a Tag filha <option>.
+
+-Ex de Codigo:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <form onsubmit="" method="get">
+       <label>Nome: </label><input type="text" name="name"><br>
+       <label>Cargo: </label>
+       <select name="role">
+            <option value="">Selecione o cargo</option>
+            <option value="gerente">Gerente</option>
+            <option value="diretor">Diretor</option>
+            <option value="presidente">Presidente</option>
+       </select>
+       <br>
+       <label>Assunto: </label><input type="text" name="subject"><br>
+       <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+
+#Tag <textarea>
+
+-Ex de Código:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <form onsubmit="" method="get">
+       <label>Nome: </label><input type="text" name="name"><br>
+       <label>Cargo: </label>
+       <select name="role">
+            <option value="">Selecione o cargo</option>
+            <option value="gerente">Gerente</option>
+            <option value="diretor">Diretor</option>
+            <option value="presidente">Presidente</option>
+       </select>
+       <br>
+       <label>Assunto: </label><input type="text" name="subject"><br>
+       <label>Mensagem: </label><textarea rows="10" cols="100" name="mensage"></textarea>
+       <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

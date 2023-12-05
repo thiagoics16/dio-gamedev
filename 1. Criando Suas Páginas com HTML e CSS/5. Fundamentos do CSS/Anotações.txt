@@ -1,0 +1,410 @@
+# Fundamentos de CSS
+
+## Objetivo Geral:
+
+    - Fundamentos do CSS;
+    - Estabilizações básicas com CSS;
+    - Unidades de medida;
+    - Posicionamentos e displays;
+    - Alinhamento de elementos (flexbox e grid layout);
+    - Responsividade;
+
+    - Pseudo-elementos;
+    - Pseudo-classes;
+    - Transições;
+    - Animações;
+    - Convenções no CSS e frameworks.
+
+## O que é CSS
+
+    - Cascading Styles Sheets (CSS), ou Folha de Estilo em Cascata, é um mecanismo para
+    adicionar estilo a um documento web(HTML), determina como será o layout do site e seus elementos.
+    - Atualmente se encontra na versão CSS3
+    - Os conceitos podem ser usados para aplicar em outros aplicativos;
+    - É uma linguagem de Estilos, não de programação nem marcação.
+
+## O que pode ser criado
+    - Layouts e estilização de páginas web;
+    - Animações;
+    - Formas Geométricas e desenhos;
+    - Filtros;
+    - Contadores.
+
+    ex: codepen.io (Daniel Snows); w3schools.com
+
+## Propriedades e valores
+
+    Sintaxe:
+
+    propriedade: valor;
+
+    ex:
+
+    background: red;
+    color: white;
+
+    CSS Inline: adicionameos o CSS através do atributo style dentro
+    das tags HTML, elemento por elemento. (Ele tem prioridade em 
+    relação a predefinição)
+
+    Ex de código:
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+</head>
+<body>
+    <h1 style="background:red; color:white" >
+        Dio - Digital Innovation One
+    </h1>
+    <h2 style="color: red;">
+    Trilha de CSS
+    </h2>
+</body>
+</html>
+
+    CSS Interno: o código CSS é adicionado dentro da tag <head> 
+    da página HTML. Dentro da tag <head> adicionameos outra tag
+    a <style>, e colocamos as regras CSS nessa área.
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+    <style>
+        h1{
+            background: blue;
+            color: white;
+        }
+        h2{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Dio - Digital Innovation One
+    </h1>
+    <h2>
+    Trilha de CSS
+    </h2>
+</body>
+</html>
+
+Esses códigos só valem para o Index, só para a página inicial.
+
+CSS Externo: é criado um arquivo com a extensão .css com todas as
+regras CSS que queremos aplicar e esse arquivo é referenciado no
+HTML da página através da tag <link>.
+
+HTML(index.html)
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trilha de CSS</title>
+        <link rel="stylesheet" href="./Assets/CSS/style.css">
+
+    </head>
+    <body>
+        <h1>
+            Dio - Digital Innovation One
+        </h1>
+        <h2>
+        Trilha de CSS
+        </h2>
+    </body>
+    </html>
+
+CSS(./Assets/CSS/style.css)
+    h1{
+        background: red;
+        color: white;
+    }
+    h2{
+        color: red;
+    }
+
+## Depuração CSS
+
+    O processo de depuração(conhecido como debug), é uma forma de 
+    identificar problemas no código-fonte de uma aplicação e
+    entender o seu comportamento.
+
+    Todos os navegadores possuem uma ferramenta voltada para
+    os desenvolvedores que permite examinar nossos sites,
+    requisições para recursos externos, entre outros. Essa 
+    ferramenta é conhecida como Dev Tools(Ferramentas de Desenvolvedor).
+
+        - Botão direito do mouse e clicar em Inspecionar;
+        - CTRL + SHIFT + I;
+        - CTRL+ SHIFT + C;
+        - F12.
+    
+    Pode ser usado para fazer testes, através de uma edição temporária do código.
+    Podemos selecionar uma parte do código e apertar F2 para editar
+    o trecho em específico.
+
+    É possível também que visualizemos como ficaria em outros dispositivos.
+
+## Seletor de tags(ou seletor de título)
+
+    Quando fazemos o CSS através das Tags é chamado de seleção de tags.
+
+Ex: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+<style>
+    /*
+    * SELETORES: definem em quais elementos nós vamos aplicar o CSS
+    * 1. Seletor de Tag/Tipo
+    * 2. Seletor de Id
+    * 3. Seletor de Classes
+    * 4. Seletor Universal
+    * 5. Seletor de atributo
+    */
+    h1 {
+        background: darkblue;
+        color: lightgreen;
+    }
+
+    div {
+        background: lightblue;
+        color: darkblue;
+    }
+
+    li {
+        background: lightgreen;
+    }
+
+</style>
+</head>
+<body>
+    <h1>Seletores CSS</h1>
+    <p>Bem-vindo!</p>
+    <p>No CSS nós possuímos os seletorres por ID</p>
+    <div>
+        <ul>
+            <li><b>Seletor por Tipo:</b>Busca Elementos por uma tag HTML específica</li>
+            <li><b>Seletor por ID (#):</b>Busca elementos através de atributo "id"</li>
+            <li><b>Seletor por Classe (.):</b>Busca elementos através de atributo "class"</li>
+            <li><b>Seletor Universal (*):</b>Seleciona todos os elementos HTML</li>
+            <li><b>Seletor por Atributo ([atrib])</b>Seleciona elementos que possuem um atributo</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+## Seletor de ID
+
+    O id é um atributo comum a todas as tags e auxilia a identificar um trecho específico
+    da página. Como uma impressão digital.
+
+    ex.
+
+    <head>
+    <style>
+        #texto-boas-vindas{
+            background: red;
+            color: white;
+        }
+    </style>
+    </head>
+    <body>
+        <p id="texto-boas-vindas">Bem-vindo!</p>
+        <p id="explicacao-seletores">No CSS nós possuímos os seletorres por ID</p>
+    </body>
+
+    Nesse caso só o primeiro será modificado, o segundo paragrafo não.
+
+## Seletor de Classes
+
+    Todos os elementos do HTML aceitam um atributo class="". Através das classes conseguimos identificar
+    um grupo de elementos. Pode haver classes repetidas, diferente do id, que é unico para cada elemento.
+
+    Podemos definir várias classes para um mesmo elemento.
+
+    Ex. de código
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+<style>
+    /*
+    * SELETORES: definem em quais elementos nós vamos aplicar o CSS
+    * 1. Seletor de Tag/Tipo
+    * 2. Seletor de Id
+    * 3. Seletor de Classes
+    * 4. Seletor Universal
+    * 5. Seletor de atributo
+    */
+
+    .seletores-mais-comuns{
+        color: red;
+    }
+    .texto-maiusculo{
+        text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+    <h1>Seletores CSS</h1>
+    <p id="texto-boas-vindas">Bem-vindo!</p>
+    <p id="explicacao-seletores">No CSS nós possuímos os seletorres por ID</p>
+    <div>
+        <ul>
+            <li class="seletores-mais-comuns texto-maiusculo"><b>Seletor por Tipo:</b>Busca Elementos por uma tag HTML específica</li>
+            <li class="seletores-mais-comuns texto-maiusculo"><b>Seletor por ID (#):</b>Busca elementos através de atributo "id"</li>
+            <li class="seletores-mais-comuns"><b>Seletor por Classe (.):</b>Busca elementos através de atributo "class"</li>
+            <li><b>Seletor Universal (*):</b>Seleciona todos os elementos HTML</li>
+            <li><b>Seletor por Atributo ([atrib])</b>Seleciona elementos que possuem um atributo</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+## Seletores Universais
+
+    É identificado por *{}, ele seleciona tudo da página e faz a modificação desejada. Dentro de <style>. 
+
+## Seletor de Atributo
+
+A regra CSS vale apenas para os que tiverem o atributo em questão.
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+<style>
+    /*
+    * SELETORES: definem em quais elementos nós vamos aplicar o CSS
+    * 1. Seletor de Tag/Tipo
+    * 2. Seletor de Id
+    * 3. Seletor de Classes
+    * 4. Seletor Universal
+    * 5. Seletor de atributo
+    */
+
+    [title]{
+        color: red;
+    }
+    
+</style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a title="Netflix" href="https://www.netflix.com">
+                    Netflix
+                </a>
+            </li>
+            <li>
+                <a title="Prime" href="https://www.primevideo.com">
+                    Prime Vídeo
+                </a>
+            </li>
+            <li>
+                <a title="Spotify" href="https://www.spotify.com">
+                    Spotify
+                </a>
+            </li>
+            <li>
+                <a>
+                    Disney Plus
+                </a>
+            </li>    
+        </ul>
+    </div>
+</body>
+</html>
+
+No caso do exemplo anterior, os que tiverem o atributo "title", mudarão de cor.
+
+É Possível tmabem especificar por exemplo [title="Netflix"], aí somente vale para os que tiverem~
+title="Netflix"
+
+Pode se colocar ~= para encontrar atributos que contenha a palavra solta, caso coloque |= é procurado valores que contenham
+a palavra e/ou logo em seguida um hífem, ex: Netflix-
+
+Tambpem é possível colocar ^= para encontra valores com o inicio que eu identificar (prefixo), no caso de sufixo $=, para identificar
+valores no final.
+
+Também pode ser colocado *= para encontra independente do local no valor.
+
+## Agrupamento de Seletores
+
+    Podemos aplicar as mesmas regras CSS para vários seletores diferentes. Para isso, podemos separar os seletores utilizando uma vírgula(,).
+
+    Assim, não precisamos ficar copiando e colando os mesmos códigos para todos, nós podemos fazer um só bloco de CSS e reutilizar as mesmas regras! 
+
+    Podem ser misturados os tipos de seletores.
+
+    A vírgula funciona como um "ou", mas caso queiramos um "e" devemos usar
+    tudo junto. Ex: "p, .texto" se torna "p.texto"
+
+    Ex. de código
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, .texto, #link-referencia {
+            color: red;
+        }
+        
+        h1, [id^="botao"] {
+            background: lightcoral;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <h1>Agrupamento de Seletores</h1>
+    <p class="texto">Podemos aplicar as mesmas regras CSS para vários seletores diferentes. Para isso, podemos separar os seletores utilizando uma vírgula(,).</p>
+    <div class="texto">    Assim, não precisamos ficar copiando e colando os mesmos códigos para todos, nós podemos fazer um só bloco de CSS e reutilizar as mesmas regras! </div>
+
+    <br><br>
+    <a id="link-referencia" href="#">Clique para ver a documentação</a>
+    <br><br>
+    <a id="link-suporte" href="#">Clique para entrar em contato</a>
+    <br><br>
+    <a id="botao-voltar" href="#">Voltar</a>
+    <br><br>
+    <button id="botao-fechar">Fechar ágina</button>
+</body>
+</html>
+
+## Combinadores
+
+    Combinadores: qula o tipo de relação entre 2 seletores.
+    1. Combinador descendente (espaço)
+    2. Combinador filho (>)
+    3. Combinador irmão adjacente (+)
+    4. Combinador irmãogeral (~)
+
+    [SELETOR] [COMBINADOR] [SELETOR]
+
+### Combinador descendente
+
+    

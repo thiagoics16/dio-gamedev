@@ -407,4 +407,365 @@ Também pode ser colocado *= para encontra independente do local no valor.
 
 ### Combinador descendente
 
+Podem se fazer combinações refinando a busca através dos seletores
+a fim de muda algum ponto específico. Separando por espaço.
+
+Ex. 
+
+li {
+        color: red;
+    }
+
+    li li {
+        color: green
+    }
+
+    #lista-01 li {
+        background: lightblue;
+    }
+
+Ex. de código
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+        Combinadores: qula o tipo de relação entre 2 
+        seletores.
+        1. Combinador descendente (espaço)
+        2. Combinador filho (>)
+        3. Combinador irmão adjacente (+)
+        4. Combinador irmãogeral (~)
+
+        [SELETOR] [COMBINADOR] [SELETOR]
+    */
+
+    .fundo-verde li {
+        background: lightgreen;
+    }
     
+    .fundo-azul li {
+        background: lightblue;
+    }
+
+    li {
+        color: red;
+    }
+
+    .fundo-verde #sublista-01 li {
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="fundo-verde" id="lista-01" >
+            <div>Item 1</div>
+            <ul id="sublista-01">
+                <li>Subitem A</li>
+                <li>Subitem B</li>
+            </ul>
+        </li>
+        <li class="fundo-verde" id="lista-02" >
+            <div>Item 2</div>
+            <ul id="sublista-02">
+                <li>Subitem A</li>
+                <li>Subitem B</li>
+            </ul>
+        </li>
+        <li class="fundo-azul" id="lista-03" >
+            <div>Item 3</div>
+            <ul id="sublista-03">
+                <li>Subitem A</li>
+                <li>Subitem B</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+Vamos "descendo" a árvore de elementos a fim de refinar a busca
+e aplicar as propriedades CSS dentro do HTML.
+
+## Combinador filho
+
+Seleciona elementos que são filhos imediatos, não funciona com os netos.
+
+Ex. de código
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+        Combinadores: qula o tipo de relação entre 2 
+        seletores.
+        1. Combinador descendente (espaço)
+        2. Combinador filho (>)
+        3. Combinador irmão adjacente (+)
+        4. Combinador irmãogeral (~)
+
+        [SELETOR] [COMBINADOR] [SELETOR]
+    */
+
+    div p {
+
+        background: lightgreen;
+    }
+
+    div > p {
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Parágrafo 1 dentro da div.</p>
+        <p>Parágrafo 2 dentro da div.</p>
+        <span>
+            <p>Parágrafo 3 dentro da div, dentro do span.</p>
+        </span>
+    </div>
+
+    <p>Parágrafo 4, fora da div.</p>
+    <p>Parágrafo 5, fora da div.</p>
+</body>
+</html>
+
+## Combinador irmão
+
+Irmão Adjacente é o que está logo ao lado com tal propriedade.
+
+ex. "div + p {}" irá pegar o <p> mais próximo de <div>, sem selecionar o <div>.
+
+Já o Irmão em Geral pefa todos os irmãos
+
+ex. "div  p {}" irá pegar todos os <p> depois de <div>, sem selecionar o <div>.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+        Combinadores: qula o tipo de relação entre 2 
+        seletores.
+        1. Combinador descendente (espaço)
+        2. Combinador filho (>)
+        3. Combinador irmão adjacente (+)
+        4. Combinador irmão geral (~)
+
+        [SELETOR] [COMBINADOR] [SELETOR]
+    */
+
+    div + p {
+        color: tomato;
+    }
+
+    .fundo-verde ~ p{
+        background: lightgreen;
+    }
+    </style>
+</head>
+<body>
+    <div class="fundo-verde">
+        <p>Parágrafo 1 dentro da div.</p>
+        <p>Parágrafo 2 dentro da div.</p>
+        <span>
+            <p>Parágrafo 3 dentro da div, dentro do span.</p>
+        </span>
+    </div>
+
+    <p>Parágrafo 4, fora da div.</p>
+    <p>Parágrafo 5, fora da div.</p>
+    <div class="fundo-verde">
+        <p>Parágrafo 6 dentro da div.</p>
+        <p>Parágrafo 7 dentro da div.</p>
+        <span>
+            <p>Parágrafo 8 dentro da div, dentro do span.</p>
+        </span>
+    </div>
+
+    <p>Parágrafo 9, fora da div.</p>
+    <p>Parágrafo 10, fora da div.</p>
+    <div class="fundo-azul">
+        <p>Parágrafo 11 dentro da div.</p>
+        <p>Parágrafo 12 dentro da div.</p>
+        <span>
+            <p>Parágrafo 13 dentro da div, dentro do span.</p>
+        </span>
+    </div>
+
+    <p>Parágrafo 14, fora da div.</p>
+    <p>Parágrafo 15, fora da div.</p>
+</body>
+</html>
+
+O <span> sai um pouco, como se não contasse como elemento direto,
+mas seu elementos internos contam, como se estivessem "envelopados".
+
+## Largura e Altura
+
+ * Propriedades básicas CSS
+    * width: Largura
+    * height: altura
+
+valores nomeados:
+- auto : preenche automaticamente com um tamanho que comporte o conteúdo em linha.
+- initial : aplica o valor padrão
+- inherit : aplica o valor do elemento pai do selecionado
+
+ex. de código
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+    * Propriedades básicas CSS
+    * width: Largura
+    * height: altura
+    */
+
+    #div-01 {
+        background: lightblue;
+        height: 200px;
+        width: 200px;
+    }
+    #div-02 {
+        background: lightgreen;
+        height: inherit;
+        width: inherit;
+    }
+    </style>
+</head>
+<body>
+   <div id="div-01">
+        Sou a div 01.
+        <div id="div-02">
+            Sou a div 02.
+       </div>
+    </div>
+   
+
+</body>
+</html>
+
+## Altura e Largura Máxima e Mínima
+
+É possivel definir quais os tamanhos máximos e mínimos dos elementos.~
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+    * Propriedades básicas CSS
+    * max-width e min-width
+    * max-height e min-height
+    */
+
+    button {
+        background: pink;
+        max-width: 500px;
+        min-height: 300px;
+    }
+
+    </style>
+</head>
+<body>
+<button>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ducimus rem tempora, quibusdam, enim recusandae quia fugiat voluptates amet aperiam architecto dolorem consequatur explicabo assumenda. Excepturi facilis illum vitae commodi.
+</button>   
+
+</body>
+</html>
+
+## Margin
+
+Margin(Margem) é usada para aplicar um espaçamento na borda dos nossos
+elementos.
+
+margin-top
+margin-left
+margin-right
+margin-bottom
+
+margin Definem em todos os lados se colocarmos 1 valor,
+Sintaxe: margin: [TODO] 
+
+2 valores o primeiro valor corresponde em cima e embaixo,
+Sintaxe: margin: [VERTICAL] [HORIZONTAL]
+
+3 valores primeiro em cima, lados em segundo e terceiro embaixo
+Sintaxe: margin: [CIMA] [LADOS] [BAIXO]
+
+4 valores cima, direito, baixo e esquerda(sentido horário)
+Sintaxe: margim: [CIMA] [DIREITA] [BAIXO] [ESQUERDA]
+
+inherit também funciona, bem como auto, entretanto esse segundo irá centralizar de forma horizontal.
+
+É possível aplicar valores negativos,  para ir no sentido contrário.
+
+## Padding
+
+Aplica um espaçamento interno, em relação as margens.
+É interessante para criar alguns cards nos sites.
+
+## Box Sizing
+
+Ajusta o tamanho do elemento para que ele não ultrapasse o valor
+definido de width e height.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  
+    div {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #elemento-01 {
+        background: orange;
+ 
+    }
+
+    #elemento-02 {
+        background: purple;
+        box-sizing: border-box;
+    }
+    /*
+    * width = largura + borda + padding
+    200px + 20px + 20px = 240px
+    160px +20px + 20px = 200px
+    */
+    </style>
+</head>
+<body>
+<div id="elemento-01"> </div>
+<div id="elemento-02"> </div>  
+
+</body>
+</html>
